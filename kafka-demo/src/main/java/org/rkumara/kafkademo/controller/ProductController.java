@@ -32,8 +32,8 @@ public class ProductController {
     }
 
     @PostMapping()
-    public void postMethodName(@RequestBody Product product) {
-        productRepository.save(product);
+    public Product postMethodName(@RequestBody Product product) {
+        return productRepository.save(product);
     }
 
     @Transactional
@@ -43,5 +43,4 @@ public class ProductController {
             new ProductPriceChangedEvent(code, productPrice.price())
         );
     }
-    
 }
